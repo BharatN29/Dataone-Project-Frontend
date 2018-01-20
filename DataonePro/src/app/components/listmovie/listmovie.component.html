@@ -1,0 +1,52 @@
+<div class="container">
+  <h1 class="alert alert-primary">Movies Tracker</h1>
+</div>
+
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Movies List</h4>
+      <div *ngFor="let movie of movies">
+        <mat-card class="example-card">
+          <mat-card-header>
+            <img mat-card-avatar class="example-header-image" src="{{movie.coverimage}}" alt="Avatar Img">
+            <mat-card-title><h6>{{movie.moviename}}</h6></mat-card-title>
+            <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="{{movie.coverimage}}" style="width:310px; height:400px;" alt="Cover Img">
+          <mat-card-content>
+            <p>
+                <b>Movie Id:</b>{{movie.movieid}}<br>
+                <b>Movie Name:</b>{{movie.moviename}}<br>
+                <b>Cover Image URL:</b><input value="{{movie.coverimage}}" disabled><br>
+                <b>Release Date:</b>{{movie.reldate}}<br>
+                <b>Genre:</b>{{movie.genre}}<br>
+                <b>Lead Actors/Actresses:</b>{{movie.leadactors}}<br>
+                <b>Directors:</b>{{movie.directors}}<br>
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="warn" (click)="deleteMovie(movie)">Delete</button>
+            <button mat-raised-button color="accent" (click)="updateMovie(movie)">Update</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <button mat-raised-button color="primary" (click)="newMovie()">New Movie</button>
+  <hr>
+  <nav aria-label="...">
+    <ul class="pagination">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1">Previous</a>
+      </li>
+      <li class="page-item" *ngFor="let p of pages; let i=index">
+        <a class="page-link" href="" (click)="setPage(i,$event)">{{i}}</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>

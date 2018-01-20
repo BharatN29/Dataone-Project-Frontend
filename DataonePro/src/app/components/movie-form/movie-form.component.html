@@ -1,0 +1,38 @@
+<div class="container">
+    <h1 class="alert alert-success">Movies Tracker</h1>
+</div>
+
+<div class="example-container">
+    <form class="example-form" (ngSubmit)="processForm()">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Movie Id" name="movieid" class="form-control" [(ngModel)]="movie.movieid">
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Movie Name" name="moviename" class="form-control" [(ngModel)]="movie.moviename" required>
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Cover Image URL" name="coverimage" class="form-control" [(ngModel)]="movie.coverimage">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker"  placeholder="Choose a release date" name="reldate" class="form-control" [(ngModel)]="movie.reldate" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Genre" name="genre" class="form-control" [(ngModel)]="movie.genre">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Lead Actors/Actresses" name="leadactors" class="form-control" [(ngModel)]="movie.leadactors" required>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Directors" name="directors" class="form-control" [(ngModel)]="movie.directors" required>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Save</button>
+    </form>
+</div>
